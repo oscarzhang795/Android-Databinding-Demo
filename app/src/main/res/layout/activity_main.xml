@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.R.color"
+            />
+        <variable
+            name="usermodel"
+            type="com.example.oscarzhang.databindingdemo.User"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_FirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{usermodel.firstname}"
+            android:textColor='@{usermodel.firstname.equals("James") ? @android:color/holo_red_dark : @android:color/black}'
+            android:textSize="44dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:oscars_fancy_text_size="@{usermodel.firstname}"
+            app:oscars_fancy_text_size2="@{usermodel.lastname}"
+
+            tools:text="first"
+            />
+
+        <TextView
+            android:id="@+id/tv_LastName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{usermodel.lastname}"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="44dp"
+            app:layout_constraintLeft_toRightOf="@+id/tv_FirstName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="last"
+            app:my_animation="@{usermodel.lastname}"/>
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Test"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
+
